@@ -45,6 +45,6 @@ const UserSchema = mongoose.Schema({
 
 mongoose.model("users", UserSchema);
 
-const Expense = mongoose.model("users");
+const User = mongoose.model("users");
 
-module.exports = Expense;
+module.exports = User;

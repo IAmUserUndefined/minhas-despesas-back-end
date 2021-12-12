@@ -1,5 +1,5 @@
 const closeMongoConnection = require("../database/mongodb/index");
-const UserModel = require("../database/models/User");
+const UserModel = require("../database/models/user");
 const ExpenseModel = require("../database/models/expense");
 
 class ExpenseRepository {
