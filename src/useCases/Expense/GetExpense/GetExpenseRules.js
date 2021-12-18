@@ -1,4 +1,4 @@
-const { ExpenseRepository } = require("../../../repositories/Expense");
+const { ExpenseRepository } = require("../../../repositories/Expense/ExpenseRepository/ExpenseRepository");
 
 module.exports = class GetExpenseRules {
 	constructor() {

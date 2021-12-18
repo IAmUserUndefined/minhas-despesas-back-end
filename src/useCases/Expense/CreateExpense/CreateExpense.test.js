@@ -2,7 +2,7 @@
 
 jest.setTimeout(15000);
 
-const { ExpenseTestRepository } = require("../../../repositories/Expense");
+const { ExpenseTestRepository } = require("../../../repositories/Expense/ExpenseTestRepository/ExpenseTestRepository");
 
 const expenseTestRepository = new ExpenseTestRepository();
 

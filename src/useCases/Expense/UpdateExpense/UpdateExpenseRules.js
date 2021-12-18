@@ -1,6 +1,6 @@
 const { MissingParamError } = require("../../../utils/errors/index");
 
-const { ExpenseRepository } = require("../../../repositories/Expense");
+const { ExpenseRepository } = require("../../../repositories/Expense/ExpenseRepository/ExpenseRepository");
 
 module.exports = class UpdateExpenseRules {
 	constructor() {

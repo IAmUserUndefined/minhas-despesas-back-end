@@ -1,4 +1,4 @@
-const { ok } = require("../../../adapters/adapterResponses");
+const { ok } = require("../../../adapters/adapterResponses/adapterResponses");
 const GetExpenseRules = require("./GetExpenseRules");
 
 module.exports = new class GetExpenseController {
