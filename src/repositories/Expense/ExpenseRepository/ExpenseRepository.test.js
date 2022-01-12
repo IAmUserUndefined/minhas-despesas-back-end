@@ -31,15 +31,6 @@ describe(("Test of task repository"), () => {
 		expect(expenses[0].price).not.toBeUndefined();
 	});
 
-	test("Should search expense", async () => {
-		const repository = new ExpenseRepository();
-		const expenses = await repository.expenseSearch("1", "Conta de luz");
-		expect(expenses[0]._id).not.toBeUndefined();
-		expect(expenses[0].expenseName).not.toBeUndefined();
-		expect(expenses[0].dueDate).not.toBeUndefined();
-		expect(expenses[0].price).not.toBeUndefined();
-	});
-
 	test("Should update expense", async () => {
 		const repository = new ExpenseRepository();
 		await repository.update("1", "1", "Conta de Água", "2022-05-06", 100);

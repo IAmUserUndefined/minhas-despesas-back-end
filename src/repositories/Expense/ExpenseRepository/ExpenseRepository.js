@@ -21,17 +21,6 @@ class ExpenseRepository {
 		});
 	}
 
-	async expenseSearch(userId, expenseName) {
-		const searchExpense = await ExpenseModel.find(
-			{
-				userId: userId,
-				expenseName: { $regex: `.*${expenseName}.*` }
-			}
-		).sort({ dueDate: 1 });
-
-		return searchExpense;
-	}
-
 	async getExpenses(userId) {
 		const expenses = await ExpenseModel.find({
 			userId: userId
