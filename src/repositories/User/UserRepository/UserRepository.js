@@ -11,7 +11,7 @@ class UserRepository {
 			password: hash,
 			verificationToken: token,
 			verificationTokenExpiryDate: 0
-		});
+		}).catch(err => console.log(err));
 	}
 
 	async verifyEmail(email, token) {
@@ -21,7 +21,7 @@ class UserRepository {
 		},
 
 		{ verifiedEmail: true }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async delete(id) {
@@ -31,14 +31,14 @@ class UserRepository {
 	async findEmailById(id) {
 		const userEmail = await UserModel.findOne(
 			{ _id: id }
-		);
+		).catch(err => console.log(err));
 		return userEmail;
 	}
 
 	async findEmailByEmail(email) {
 		const userEmail = await UserModel.findOne(
 			{ email: email }
-		);
+		).catch(err => console.log(err));
 		return userEmail;
 	}
 
@@ -46,7 +46,7 @@ class UserRepository {
 		const userEmail = await UserModel.findOne({
 			email: email,
 			verifiedEmail: true
-		});
+		}).catch(err => console.log(err));
 
 		return userEmail;
 	}
@@ -55,7 +55,7 @@ class UserRepository {
 		const { _id } = await UserModel.findOne(
 			{
 				email: email
-			});
+			}).catch(err => console.log(err));
 
 		return _id;
 
@@ -64,7 +64,7 @@ class UserRepository {
 	async getPasswordById(id) {
 		const { password } = await UserModel.findOne({
 			_id: id
-		});
+		}).catch(err => console.log(err));
 
 		return password;
 	}
@@ -72,7 +72,7 @@ class UserRepository {
 	async getPasswordByEmail(email) {
 		const { password } = await UserModel.findOne({
 			email: email
-		});
+		}).catch(err => console.log(err));
 
 		return password;
 	}
@@ -82,7 +82,7 @@ class UserRepository {
 			{
 				_id: id,
 				verificationToken: verificationToken
-			});
+			}).catch(err => console.log(err));
 
 		return userVerificationToken;
 	}
@@ -92,7 +92,7 @@ class UserRepository {
 			{
 				email: email,
 				verificationToken: verificationToken
-			});
+			}).catch(err => console.log(err));
 
 		return userVerificationToken;
 	}
@@ -101,14 +101,14 @@ class UserRepository {
 		await UserModel.updateOne(
 			{ _id: id },
 			{ verificationToken: verificationToken }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async updateVerificationTokenByEmail(email, verificationToken) {
 		await UserModel.updateOne(
 			{ email: email },
 			{ verificationToken: verificationToken }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async getVerficationTokenExpiryDateById(id, verificationToken) {
@@ -116,7 +116,7 @@ class UserRepository {
 			{
 				_id: id,
 				verificationToken: verificationToken
-			});
+			}).catch(err => console.log(err));
 
 		return verificationTokenExpiryDate;
 	}
@@ -126,7 +126,7 @@ class UserRepository {
 			{
 				email: email,
 				verificationToken: verificationToken
-			});
+			}).catch(err => console.log(err));
 
 		return verificationTokenExpiryDate;
 	}
@@ -135,35 +135,35 @@ class UserRepository {
 		await UserModel.updateOne(
 			{ _id: id },
 			{ verificationTokenExpiryDate: verificationTokenExpiryDate }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async updateVerificationTokenExpiryDateByEmail(email, verificationTokenExpiryDate) {
 		await UserModel.updateOne(
 			{ email: email },
 			{ verificationTokenExpiryDate: verificationTokenExpiryDate }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async updateEmail(id, email) {
 		await UserModel.updateOne(
 			{ _id: id },
 			{ email: email }
-		);
+		).catch(err => console.log(err));
 	}
 
 	async updatePasswordById(id, passwordNew) {
 		await UserModel.updateOne(
 			{ _id: id },
 			{ password: passwordNew },
-		);
+		).catch(err => console.log(err));
 	}
     
 	async updatePasswordByEmail(email, passwordNew) {
 		await UserModel.updateOne(
 			{ email: email },
 			{ password: passwordNew },
-		);
+		).catch(err => console.log(err));
 	}
 }
 

@@ -11,20 +11,22 @@ class ExpenseRepository {
 			expenseName: expenseName,
 			dueDate: dueDate,
 			price: price
-		});
+		}).catch(err => console.log(err));
 	}
 
 	async delete(userId, id) {
 		await ExpenseModel.deleteOne({
 			_id: id,
 			userId: userId
-		});
+		}).catch(err => console.log(err));
 	}
 
 	async getExpenses(userId) {
 		const expenses = await ExpenseModel.find({
 			userId: userId
-		}).sort({ dueDate: 1 });
+		})
+			.sort({ dueDate: 1 })
+			.catch(err => console.log(err));
 
 		return expenses;
 	}
@@ -43,7 +45,7 @@ class ExpenseRepository {
 				price: price
 			},
 
-		);
+		).catch(err => console.log(err));
 	}
 }
 
